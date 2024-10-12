@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BibliotecaService } from '../services/biblioteca.service';
 
 
 @Component({
@@ -9,22 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class MyBibliotecaPage implements OnInit {
 
 
-  biblioteca: any = [
-    {
-      id: 1,
-      titulo: "El señor de los anillos",
-      autor: "J.R.R. Tolkien"
+  biblioteca: any = []  
 
-    },{
-      id: 2,
-      titulo: "Frankenstein",
-      autor: "Mary Shelly"
-    }
+  
 
-  ]
-
-  constructor() { }
+  constructor(private bibliotecaService: BibliotecaService) { }
   ngOnInit() {
+    this.getAllBiblioteca();
+
+  }
+  getAllBiblioteca(){
+    this.bibliotecaService.getBiblioteca().subscribe(response => {
+      this.biblioteca = response;
+    });
 
   }
     
