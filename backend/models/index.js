@@ -1,6 +1,6 @@
 const dbConfig = require("../config/db.config.js");
 
-const Sequelize = requiere("sequelize");
+const Sequelize = require("sequelize");
 const sequelize = new Sequelize (dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{
     host:dbConfig.HOST,
     dialect: dbConfig.dialect,
@@ -9,7 +9,7 @@ const sequelize = new Sequelize (dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{
     pool: {
         max: dbConfig.pool.max,
         min: dbConfig.pool.min,
-        acquire: dbConfig.pool,acquire,
+        acquire: dbConfig.pool.acquire,
         idle: dbConfig.pool.idle
 
     }
@@ -19,6 +19,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.biblioteca = require("./biblioteca.model.js")(sequelize, Sequelize);
+db.biblioteca = require("./biblioteca.models.js")(sequelize, Sequelize);
 
 module.exports = db;
