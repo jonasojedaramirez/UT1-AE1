@@ -1,1 +1,2 @@
-Practica unidad 1, no esta completa, todavia tengo lio con el proyecto, a la hora de interpretar los apuntes
+09-11-2024 Practica de ionic- modificaciones hechas, ya añade, borra, lista y busca por id.
+
